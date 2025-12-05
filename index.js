@@ -15,8 +15,13 @@ app.use('/api/bookings', bookingRoutes);
 // Admin endpoints (desktop app)
 app.use('/api/admin/bookings', adminBookingRoutes);
 
+app.use("/api/admin/bookings", require("./routes/adminBookingRoutes"));
+
+
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
+
+
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
